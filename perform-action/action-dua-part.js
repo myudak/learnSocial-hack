@@ -34,12 +34,12 @@ async function performActionDuaPart(page) {
     }
   }
 
-  await tungguClick(page, ".check");
-  await tungguClick(page, "#navbarRightButton");
-  // await new Promise((resolve) => setTimeout(resolve, 2000));
-  await tungguClick(page, "#navbarRightButton");
-  console.log("<========================>");
-  console.log("<=== OPERATION DONE ===>");
+  //   await tungguClick(page, ".check");
+  //   await tungguClick(page, "#navbarRightButton");
+  //   // await new Promise((resolve) => setTimeout(resolve, 2000));
+  //   await tungguClick(page, "#navbarRightButton");
+  //   console.log("<========================>");
+  //   console.log("<=== OPERATION DONE ===>");
 }
 
 export default performActionDuaPart;

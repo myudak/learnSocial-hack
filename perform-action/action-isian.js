@@ -1,4 +1,4 @@
-import { tungguClick } from "../utils/utils.js";
+import { cekAdaGak, tungguClick } from "../utils/utils.js";
 
 async function performActionIsian(page) {
   console.log("PERFORM ACTION ISIAN");

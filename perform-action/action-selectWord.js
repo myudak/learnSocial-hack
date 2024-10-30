@@ -1,4 +1,4 @@
-import { tungguClick } from "../utils/utils.js";
+import { cekAdaGak, tungguClick } from "../utils/utils.js";
 
 async function performActionSelectWord(page) {
   console.log("PERFORM ACTION SELECT WORD");

@@ -11,6 +11,7 @@ import performActionWordGap from "./perform-action/action-wordGap.js";
 import { tungguClick, exitProgram, rl } from "./utils/utils.js";
 import open from "open";
 import "dotenv/config";
+import performActionDuaPart from "./perform-action/action-dua-part.js";
 
 const WEB_LINK = "https://undip.learnsocial.online/";
 const APP_VERSION = "v0.1";
@@ -36,6 +37,8 @@ async function listenForInput(page, browser) {
           chalk.cyan(
             "Soal Fill the gap (Choose the words that cannot fill the gaps)\n"
           ) +
+          chalk.green("8 : ") +
+          chalk.cyan("Soal dua part kanan kiri\n") +
           chalk.green("c / q / close : ") +
           chalk.cyan("Exit X\n") +
           chalk.green("clear : ") +
@@ -64,6 +67,8 @@ async function listenForInput(page, browser) {
       await performActionIsianTextBox(page);
     } else if (input === "7") {
       await performActionWordGap(page);
+    } else if (input === "8") {
+      await performActionDuaPart(page);
     } else if (input === "?") {
       console.log("opening project wiki");
       await open(

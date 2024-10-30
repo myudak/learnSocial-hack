@@ -4,6 +4,8 @@ async function performActionDuaPart(page) {
   console.log("PERFORM ACTION WORD GAP");
   console.log("<========================>");
 
+  await cekAdaGak(page, ".pendingPair");
+
   const uniqueSelectors = await page.evaluate(() => {
     const a = [];
     const elements = Array.from(document.querySelectorAll(".pendingPair"))

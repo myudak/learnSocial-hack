@@ -1,8 +1,10 @@
-import { tungguClick } from "../utils/utils.js";
+import { cekAdaGak, tungguClick } from "../utils/utils.js";
 
 async function performActionCeklis(page) {
   console.log("PERFORM ACTION CEKLIS");
   console.log("<========================>");
+
+  await cekAdaGak(page, ".mcqAlignedItem");
 
   await tungguClick(page, ".mcqAlignedItem");
   await tungguClick(page, ".check");

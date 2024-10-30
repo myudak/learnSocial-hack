@@ -5,6 +5,16 @@ async function tungguClick(p, select) {
   await p.click(select);
 }
 
+async function cekAdaGak(p, select) {
+  try {
+    await p.waitForSelector(select, { timeout: 5000 });
+    console.log("ok gas");
+  } catch (error) {
+    console.error("gk ketemu jing:", error.message);
+    return;
+  }
+}
+
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
@@ -18,4 +28,4 @@ async function exitProgram(browser) {
   process.exit(0);
 }
 
-export { tungguClick, exitProgram, rl };
+export { tungguClick, exitProgram, rl, cekAdaGak };

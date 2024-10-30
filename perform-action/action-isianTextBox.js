@@ -3,6 +3,9 @@ import { tungguClick } from "../utils/utils.js";
 async function performActionIsianTextBox(page) {
   console.log("PERFORM ACTION ISIAN TEXT BOX");
   console.log("<========================>");
+
+  await cekAdaGak(page, ".textEntry-textBox");
+
   await page.waitForSelector(".textEntry-textBox");
   await page.evaluate(() => {
     document.querySelectorAll(".textEntry-textBox")[0].value = "myudak";

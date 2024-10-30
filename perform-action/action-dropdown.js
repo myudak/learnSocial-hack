@@ -4,6 +4,8 @@ async function performActionDropDown(page) {
   console.log("PERFORM ACTION DropDown");
   console.log("<========================>");
 
+  await cekAdaGak(page, ".dropDownBox");
+
   await page.evaluate(() => {
     document.querySelector(".dropDownBox").value =
       document.querySelectorAll(".option")[1].value;

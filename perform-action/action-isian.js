@@ -4,6 +4,8 @@ async function performActionIsian(page) {
   console.log("PERFORM ACTION ISIAN");
   console.log("<========================>");
 
+  await cekAdaGak(page, ".textEntry-textArea");
+
   await page.waitForSelector(".textEntry-textArea");
   await page.evaluate(() => {
     document.querySelectorAll(".textEntry-textArea")[0].value = "myudak";

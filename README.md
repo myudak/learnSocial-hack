@@ -58,6 +58,34 @@ node main.js
 
 ## 📖 Project Wiki
 
+### 1 : Soal Pilihan Ganda ABCD
+
+![alt text](image-1.png)
+
+### 2 : Soal Isian TextArea
+
+![alt text](image-2.png)
+
+### 3 : Soal Ceklis Ceklis
+
+![alt text](image-3.png)
+
+### 4 : Soal Dropdown
+
+![alt text](image-4.png)
+
+### 5 : Soal Select Word Kata
+
+![alt text](image-5.png)
+
+### 6 : Soal Isian TextBox (Complete the sentences)
+
+![alt text](image-6.png)
+
+### 7 : 7 : Soal Fill the gap (Choose the words that cannot fill the gaps)
+
+![alt text](image-7.png)
+
 ## Contributing
 
 All contributions are welcome. Please take a look at [contributing](./CONTRIBUTING.md) guide.

@@ -9,6 +9,7 @@ import performActionCeklis from "./perform-action/action-ceklis.js";
 import performActionIsianTextBox from "./perform-action/action-isianTextBox.js";
 import performActionWordGap from "./perform-action/action-wordGap.js";
 import { tungguClick, exitProgram, rl } from "./utils/utils.js";
+import open from "open";
 import "dotenv/config";
 
 const WEB_LINK = "https://undip.learnsocial.online/";
@@ -61,6 +62,10 @@ async function listenForInput(page, browser) {
       await performActionIsianTextBox(page);
     } else if (input === "7") {
       await performActionWordGap(page);
+    } else if (input === "?") {
+      await open(
+        "https://github.com/myudak/learnSocial-hack/blob/main/README.md#ProjectWiki"
+      );
     } else if (input === "clear") {
       await console.clear();
     } else {

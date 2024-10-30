@@ -11,6 +11,9 @@ import performActionWordGap from "./perform-action/action-wordGap.js";
 import { tungguClick, exitProgram, rl } from "./utils/utils.js";
 import "dotenv/config";
 
+const WEB_LINK = "https://undip.learnsocial.online/";
+const APP_VERSION = "v0.1";
+
 async function listenForInput(page, browser) {
   while (1) {
     const input = await new Promise((resolve) => {
@@ -71,8 +74,8 @@ async function listenForInput(page, browser) {
   const PASSWORD = process.env.PASSWORDUNDIP;
   const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
-  await page.goto("https://undip.learnsocial.online/");
-  console.log((await page.title()) + " Learn Social v0.1");
+  await page.goto(WEB_LINK);
+  console.log((await page.title()) + " LearnSocial" + APP_VERSION);
   //   page.on("console", async (msg) => {
   //     const msgArgs = msg.args();
   //     for (let i = 0; i < msgArgs.length; ++i) {
@@ -82,6 +85,13 @@ async function listenForInput(page, browser) {
 
   await new Promise((resolve) => setTimeout(resolve, 3500));
   await page.waitForSelector(".gwt-TextBox");
+
+  if (!USERNAME && !PASSWORD) {
+    console.log(
+      chalk.red("!!!USERNAME PASSWORD BLOM DI SET DI ENV!!! (ExiTing)")
+    );
+    await exitProgram(browser);
+  }
   await page.evaluate((u) => {
     document.querySelectorAll(".gwt-TextBox")[0].value = u;
   }, USERNAME);

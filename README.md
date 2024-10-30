@@ -1,3 +1,5 @@
+# Auto LearnSocial
+
 ![alt text](image.png)
 
 ⭐ Star us on GitHub — it motivates us a lot!
@@ -26,6 +28,10 @@ This isn’t exactly a ‘hack’ in the traditional sense—it's more like an i
 git clone https://github.com/myudak/learnSocial-hack.git
 ```
 
+```
+cd learnSocial-hack
+```
+
 ### 2. Install dependencies
 
 ```
@@ -34,10 +40,29 @@ pnpm install
 
 ### 3. Run the project
 
+tambah file .env di root folder
+dengan username dan password learnsocial
+
+contoh
+
+```
+USERUNDIP="username"
+PASSWORDUNDIP="password"
+```
+
+lalu run file utama
+
 ```
 node main.js
 ```
 
+## 📖 Project Wiki
+
+## Contributing
+
+All contributions are welcome. Please take a look at [contributing](./CONTRIBUTING.md) guide.
+
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details
+This project is licensed under the GNU GENERAL PUBLIC LICENSE
+Version 3 License - see the [LICENSE](./LICENSE) file for details

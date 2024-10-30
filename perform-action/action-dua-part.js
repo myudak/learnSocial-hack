@@ -4,7 +4,7 @@ async function performActionDuaPart(page) {
   console.log("PERFORM ACTION WORD GAP");
   console.log("<========================>");
 
-  await cekAdaGak(page, ".pendingPair");
+  if (!cekAdaGak(page, ".pendingPair")) return;
 
   const uniqueSelectors = await page.evaluate(() => {
     const a = [];

@@ -4,7 +4,7 @@ async function performActionSelectWord(page) {
   console.log("PERFORM ACTION SELECT WORD");
   console.log("<========================>");
 
-  await cekAdaGak(page, ".wordSelect-Selectable");
+  if (!cekAdaGak(page, ".wordSelect-Selectable")) return;
 
   await tungguClick(page, ".wordSelect-Selectable");
   await tungguClick(page, ".check");

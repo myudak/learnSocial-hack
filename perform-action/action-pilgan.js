@@ -4,7 +4,7 @@ async function performActionABCD(page) {
   console.log("PERFORM ACTION PILGAN ABCD");
   console.log("<========================>");
 
-  await cekAdaGak(page, ".mcqItemStyle");
+  if (!cekAdaGak(page, ".mcqItemStyle")) return;
 
   await tungguClick(page, ".mcqItemStyle");
   await tungguClick(page, ".check");

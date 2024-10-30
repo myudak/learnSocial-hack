@@ -8,10 +8,9 @@ import performActionSelectWord from "./perform-action/action-selectWord.js";
 import performActionCeklis from "./perform-action/action-ceklis.js";
 import performActionIsianTextBox from "./perform-action/action-isianTextBox.js";
 import performActionWordGap from "./perform-action/action-wordGap.js";
-import { tungguClick, exitProgram, rl } from "./utils/utils.js";
-import open from "open";
-import "dotenv/config";
 import performActionDuaPart from "./perform-action/action-dua-part.js";
+import { tungguClick, exitProgram, rl, helpProgram } from "./utils/utils.js";
+import "dotenv/config";
 
 const WEB_LINK = "https://undip.learnsocial.online/";
 const APP_VERSION = "v0.1";
@@ -70,10 +69,7 @@ async function listenForInput(page, browser) {
     } else if (input === "8") {
       await performActionDuaPart(page);
     } else if (input === "?") {
-      console.log("opening project wiki");
-      await open(
-        "https://github.com/myudak/learnSocial-hack/blob/main/README.md#-project-wiki"
-      );
+      await helpProgram();
     } else if (input === "clear") {
       await console.clear();
     } else {

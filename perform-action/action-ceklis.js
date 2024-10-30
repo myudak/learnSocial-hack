@@ -4,7 +4,7 @@ async function performActionCeklis(page) {
   console.log("PERFORM ACTION CEKLIS");
   console.log("<========================>");
 
-  await cekAdaGak(page, ".mcqAlignedItem");
+  if (!cekAdaGak(page, ".mcqAlignedItem")) return;
 
   await tungguClick(page, ".mcqAlignedItem");
   await tungguClick(page, ".check");

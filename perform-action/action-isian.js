@@ -4,7 +4,7 @@ async function performActionIsian(page) {
   console.log("PERFORM ACTION ISIAN");
   console.log("<========================>");
 
-  await cekAdaGak(page, ".textEntry-textArea");
+  if (!cekAdaGak(page, ".textEntry-textArea")) return;
 
   await page.waitForSelector(".textEntry-textArea");
   await page.evaluate(() => {

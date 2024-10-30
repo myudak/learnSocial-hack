@@ -4,7 +4,7 @@ async function performActionIsianTextBox(page) {
   console.log("PERFORM ACTION ISIAN TEXT BOX");
   console.log("<========================>");
 
-  await cekAdaGak(page, ".textEntry-textBox");
+  if (!cekAdaGak(page, ".textEntry-textBox")) return;
 
   await page.waitForSelector(".textEntry-textBox");
   await page.evaluate(() => {

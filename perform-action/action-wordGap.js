@@ -4,7 +4,7 @@ async function performActionWordGap(page) {
   console.log("PERFORM ACTION WORD GAP");
   console.log("<========================>");
 
-  await cekAdaGak(page, ".mcqInlineItem");
+  if (!cekAdaGak(page, ".mcqInlineItem")) return;
 
   await tungguClick(page, ".mcqInlineItem");
   await tungguClick(page, ".check");

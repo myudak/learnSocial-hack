@@ -40,6 +40,8 @@ async function listenForInput(page, browser) {
           chalk.cyan("Exit X\n") +
           chalk.green("clear : ") +
           chalk.cyan("Clear Console Screen\n") +
+          chalk.green("? : ") +
+          chalk.cyan("Show Help\n") +
           chalk.magentaBright("========================\n") +
           chalk.white("> "),
         resolve
@@ -63,8 +65,9 @@ async function listenForInput(page, browser) {
     } else if (input === "7") {
       await performActionWordGap(page);
     } else if (input === "?") {
+      console.log("opening project wiki");
       await open(
-        "https://github.com/myudak/learnSocial-hack/blob/main/README.md#ProjectWiki"
+        "https://github.com/myudak/learnSocial-hack/blob/main/README.md#-project-wiki"
       );
     } else if (input === "clear") {
       await console.clear();

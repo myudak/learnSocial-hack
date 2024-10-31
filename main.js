@@ -9,17 +9,19 @@ import performActionCeklis from "./perform-action/action-ceklis.js";
 import performActionIsianTextBox from "./perform-action/action-isianTextBox.js";
 import performActionWordGap from "./perform-action/action-wordGap.js";
 import performActionDuaPart from "./perform-action/action-dua-part.js";
+import performActionAll from "./perform-action/action-all.js";
+import performActionResetAll from "./perform-action/action-resetAll.js";
 import { tungguClick, exitProgram, rl, helpProgram } from "./utils/utils.js";
 import "dotenv/config";
 
 const WEB_LINK = "https://undip.learnsocial.online/";
-const APP_VERSION = "v0.1";
+const APP_VERSION = "v0.2.1";
 
 async function listenForInput(page, browser) {
   while (1) {
     const input = await new Promise((resolve) => {
       rl.question(
-        chalk.magentaBright("\n========================\n") +
+        chalk.magentaBright("\n==========@myudak|==============\n") +
           chalk.green("1 : ") +
           chalk.cyan("Soal Pilihan Ganda ABCD\n") +
           chalk.green("2 : ") +
@@ -38,13 +40,17 @@ async function listenForInput(page, browser) {
           ) +
           chalk.green("8 : ") +
           chalk.cyan("Soal dua part kanan kiri\n") +
+          chalk.green("a : ") +
+          chalk.cyan("All Auto Answer in one unit\n") +
+          chalk.green("r : ") +
+          chalk.cyan("Reset All answer in one unit\n") +
           chalk.green("c / q / close : ") +
           chalk.cyan("Exit X\n") +
           chalk.green("clear : ") +
           chalk.cyan("Clear Console Screen\n") +
           chalk.green("? : ") +
           chalk.cyan("Show Help\n") +
-          chalk.magentaBright("========================\n") +
+          chalk.magentaBright("============〜(￣▽￣〜)============\n") +
           chalk.white("> "),
         resolve
       );
@@ -68,6 +74,10 @@ async function listenForInput(page, browser) {
       await performActionWordGap(page);
     } else if (input === "8") {
       await performActionDuaPart(page);
+    } else if (input === "a") {
+      await performActionAll(page);
+    } else if (input === "r") {
+      await performActionResetAll(page);
     } else if (input === "?") {
       await helpProgram();
     } else if (input === "clear") {
@@ -97,7 +107,7 @@ async function listenForInput(page, browser) {
 
   if (!USERNAME && !PASSWORD) {
     console.log(
-      chalk.red("!!!USERNAME PASSWORD BLOM DI SET DI ENV!!! (ExiTing)")
+      chalk.red("!!!USERNAME PASSWORD BLOM DI SET DI ENV!!! (ExiTing)...")
     );
     await exitProgram(browser);
   }

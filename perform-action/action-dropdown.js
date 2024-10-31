@@ -6,42 +6,47 @@ async function performActionDropDown(page) {
 
   if (!cekAdaGak(page, ".dropDownBox")) return;
 
-  await page.evaluate(() => {
-    document.querySelector(".dropDownBox").value =
-      document.querySelectorAll(".option")[1].value;
-  });
-
-  await tungguClick(page, ".check");
-  await tungguClick(page, ".reveal");
-
-  const jawaban = await page.evaluate(() => {
-    const dropdowns = document.querySelectorAll(".dropDownBox");
-    const jawaban = [];
-
-    dropdowns.forEach((dropdown) => {
-      const selectedValue = dropdown.value;
-      jawaban.push(selectedValue);
+  try {
+    await page.evaluate(() => {
+      document.querySelector(".dropDownBox").value =
+        document.querySelectorAll(".option")[1].value;
     });
 
-    return jawaban;
-  });
+    await tungguClick(page, ".check");
+    await tungguClick(page, ".reveal");
 
-  await tungguClick(page, ".reset");
-  console.log("CONSOLE OUTPUT -> JAWABANN ==>:", jawaban);
+    const jawaban = await page.evaluate(() => {
+      const dropdowns = document.querySelectorAll(".dropDownBox");
+      const jawaban = [];
 
-  await page.evaluate((jawaban) => {
-    const dropdowns = document.querySelectorAll(".dropDownBox");
-    for (let i = 0; i < dropdowns.length; i++) {
-      dropdowns[i].value = jawaban[i];
-    }
-  }, jawaban);
+      dropdowns.forEach((dropdown) => {
+        const selectedValue = dropdown.value;
+        jawaban.push(selectedValue);
+      });
 
-  await tungguClick(page, ".check");
-  await tungguClick(page, "#navbarRightButton");
-  // await new Promise((resolve) => setTimeout(resolve, 2000));
-  await tungguClick(page, "#navbarRightButton");
-  console.log("<========================>");
-  console.log("<=== OPERATION DONE ===>");
+      return jawaban;
+    });
+
+    await tungguClick(page, ".reset");
+    console.log("CONSOLE OUTPUT -> JAWABANN ==>:", jawaban);
+
+    await page.evaluate((jawaban) => {
+      const dropdowns = document.querySelectorAll(".dropDownBox");
+      for (let i = 0; i < dropdowns.length; i++) {
+        dropdowns[i].value = jawaban[i];
+      }
+    }, jawaban);
+
+    await tungguClick(page, ".check");
+    await tungguClick(page, "#navbarRightButton");
+    // await new Promise((resolve) => setTimeout(resolve, 2000));
+    await tungguClick(page, "#navbarRightButton");
+    console.log("<========================>");
+    console.log("<=== OPERATION DONE ===>");
+  } catch (error) {
+    console.error("ERROR", error);
+    return;
+  }
 }
 
 export default performActionDropDown;

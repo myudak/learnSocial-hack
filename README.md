@@ -1,6 +1,9 @@
+![alt text](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGxz6q73I4WAceUbIhi12NMnnKY7DOV5uY1A&s)
+
 # Auto LearnSocial
 
 ![alt text](./assets/image.png)
+<video controls src="./assets/video_preview.mp4" title="Title"></video>
 
 ⭐ Star us on GitHub — it motivates us a lot!
 
@@ -13,6 +16,8 @@
 ## 🚀 About
 
 This isn’t exactly a ‘hack’ in the traditional sense—it's more like an incredibly efficient automation technique for responding to a wide range of question types on the LearnSocial platform. Using Puppeteer, this method automates the process of answering questions, handling everything from multiple-choice to short-answer formats. It’s designed to provide rapid, consistent responses, saving time and reducing effort while maintaining accuracy across various types of queries. Perfect for those looking to streamline their interactions with the platform, this solution leverages the power of Puppeteer’s scripting capabilities to automatically fetch, analyze, and respond to questions, making it a valuable tool for anyone aiming to navigate LearnSocial efficiently and effectively."ns.
+
+**Disclaimer**: This program is intended solely for educational and informational purposes. It is not designed, intended, or recommended for any use that would violate the terms of service, policies, or rules of any other software, platform, or service. The author and contributors of this program bear no responsibility for any misuse, abuse, or damages resulting from the use of this software. Users are solely responsible for ensuring they use this program within the boundaries of legal, ethical, and policy requirements. By using this program, you acknowledge and agree to assume all risks and responsibilities associated with its use.
 
 ## Get started
 
@@ -56,13 +61,47 @@ lalu run file utama
 node main.js
 ```
 
+thats it!
+
 ## 📖 Project Wiki
 
-### 1 : Soal Pilihan Ganda ABCD
+### How to update :
+
+```
+git pull
+```
+
+```
+pnpm install
+```
+
+### bob : robot
+
+contoh : ->
+
+```
+bob kamu siapa
+```
+
+![alt text](./assets/image-8.png)
+
+### a : All Auto Answer in one unit
+
+go to unit you want to answer
+
+```
+a
+```
+
+### 1 : Soal Pilihan Ganda
+
+contoh soal ->
 
 ![alt text](./assets/image-1.png)
 
 ### 2 : Soal Isian TextArea
+
+contoh soal ->
 
 ![alt text](./assets/image-2.png)
 

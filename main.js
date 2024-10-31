@@ -1,6 +1,7 @@
 import puppeteer from "puppeteer";
 import chalk from "chalk";
 import asciiArt from "./asciiArt.js";
+
 import performActionIsian from "./perform-action/action-isian.js";
 import performActionABCD from "./perform-action/action-pilgan.js";
 import performActionDropDown from "./perform-action/action-dropdown.js";
@@ -11,47 +12,60 @@ import performActionWordGap from "./perform-action/action-wordGap.js";
 import performActionDuaPart from "./perform-action/action-dua-part.js";
 import performActionAll from "./perform-action/action-all.js";
 import performActionResetAll from "./perform-action/action-resetAll.js";
+
 import { tungguClick, exitProgram, rl, helpProgram } from "./utils/utils.js";
 import "dotenv/config";
+import tanyaBob from "./perform-action/action-tanyaBob.js";
 
 const WEB_LINK = "https://undip.learnsocial.online/";
-const APP_VERSION = "v0.2.1";
+const APP_VERSION = "v0.2.3";
+const USERNAME = process.env.USERUNDIP;
+const PASSWORD = process.env.PASSWORDUNDIP;
+
+let history = [];
+let show = true;
 
 async function listenForInput(page, browser) {
   while (1) {
     const input = await new Promise((resolve) => {
       rl.question(
-        chalk.magentaBright("\n==========@myudak|==============\n") +
-          chalk.green("1 : ") +
-          chalk.cyan("Soal Pilihan Ganda ABCD\n") +
-          chalk.green("2 : ") +
-          chalk.cyan("Soal Isian TextArea\n") +
-          chalk.green("3 : ") +
-          chalk.cyan("Soal Ceklis Ceklis\n") +
-          chalk.green("4 : ") +
-          chalk.cyan("Soal Dropdown\n") +
-          chalk.green("5 : ") +
-          chalk.cyan("Soal Select Word Kata\n") +
-          chalk.green("6 : ") +
-          chalk.cyan("Soal Isian TextBox (Complete the sentences)\n") +
-          chalk.green("7 : ") +
-          chalk.cyan(
-            "Soal Fill the gap (Choose the words that cannot fill the gaps)\n"
-          ) +
-          chalk.green("8 : ") +
-          chalk.cyan("Soal dua part kanan kiri\n") +
-          chalk.green("a : ") +
-          chalk.cyan("All Auto Answer in one unit\n") +
-          chalk.green("r : ") +
-          chalk.cyan("Reset All answer in one unit\n") +
-          chalk.green("c / q / close : ") +
-          chalk.cyan("Exit X\n") +
-          chalk.green("clear : ") +
-          chalk.cyan("Clear Console Screen\n") +
-          chalk.green("? : ") +
-          chalk.cyan("Show Help\n") +
-          chalk.magentaBright("============〜(￣▽￣〜)============\n") +
-          chalk.white("> "),
+        show
+          ? chalk.magentaBright("\n==========@myudak|==============\n") +
+              chalk.green("1 : ") +
+              chalk.cyan("Soal Pilihan Ganda ABCD\n") +
+              chalk.green("2 : ") +
+              chalk.cyan("Soal Isian TextArea\n") +
+              chalk.green("3 : ") +
+              chalk.cyan("Soal Ceklis Ceklis\n") +
+              chalk.green("4 : ") +
+              chalk.cyan("Soal Dropdown\n") +
+              chalk.green("5 : ") +
+              chalk.cyan("Soal Select Word Kata\n") +
+              chalk.green("6 : ") +
+              chalk.cyan("Soal Isian TextBox (Complete the sentences)\n") +
+              chalk.green("7 : ") +
+              chalk.cyan(
+                "Soal Fill the gap (Choose the words that cannot fill the gaps)\n"
+              ) +
+              chalk.green("8 : ") +
+              chalk.cyan("Soal dua part kanan kiri\n") +
+              chalk.green("bob : ") +
+              chalk.cyan("bob robot undip\n") +
+              chalk.green("a : ") +
+              chalk.cyan("All Auto Answer in one unit\n") +
+              chalk.green("r : ") +
+              chalk.cyan("Reset All answer in one unit\n") +
+              chalk.green("c / q / close : ") +
+              chalk.cyan("Exit X\n") +
+              chalk.green("h / hide / show : ") +
+              chalk.cyan("Hide / Show this display helper\n") +
+              chalk.green("clear : ") +
+              chalk.cyan("Clear Console Screen\n") +
+              chalk.green("? : ") +
+              chalk.cyan("Show Help\n") +
+              chalk.magentaBright("============〜(￣▽￣〜)============\n") +
+              chalk.white("> ")
+          : chalk.white("> "),
         resolve
       );
     });
@@ -80,8 +94,12 @@ async function listenForInput(page, browser) {
       await performActionResetAll(page);
     } else if (input === "?") {
       await helpProgram();
+    } else if (input === "h" || input === "hide" || input === "show") {
+      show = !show;
     } else if (input === "clear") {
       await console.clear();
+    } else if (input.includes("bob")) {
+      await tanyaBob(history, input);
     } else {
       console.log("Unknown Command gblog");
     }
@@ -89,8 +107,6 @@ async function listenForInput(page, browser) {
 }
 
 (async () => {
-  const USERNAME = process.env.USERUNDIP;
-  const PASSWORD = process.env.PASSWORDUNDIP;
   const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
   await page.goto(WEB_LINK);

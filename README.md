@@ -46,7 +46,7 @@ pnpm install
 
 ### 3. Run the project
 
-tambah file .env di root folder
+tambah file `.env` di root folder
 dengan username dan password learnsocial
 
 contoh
@@ -61,7 +61,7 @@ PASSWORDUNDIP="password"
 lalu run file utama
 
 ```
-node main.js
+node .
 ```
 
 thats it!

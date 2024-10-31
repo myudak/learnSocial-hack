@@ -1,4 +1,4 @@
-// !DEPRECATED
+// !DEPRECATED JUST FOR EXPERIMENT
 const puppeteer = require("puppeteer");
 
 // Helper function to wait for a selector and click it

@@ -1,13 +1,11 @@
-// api.js
 import fetch from "node-fetch";
-
-const LINK = "https://myudak.site/api/undip";
+import { API_LINK } from "../config/mainConfig.js";
 
 async function performActionTanyaBob(history, userMessage) {
   history.push({ role: "user", content: userMessage });
 
   try {
-    const response = await fetch(LINK, {
+    const response = await fetch(API_LINK, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

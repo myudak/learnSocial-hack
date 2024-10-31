@@ -3,7 +3,7 @@ import fetch from "node-fetch";
 
 const LINK = "https://myudak.site/api/undip";
 
-async function tanyaBob(history, userMessage) {
+async function performActionTanyaBob(history, userMessage) {
   history.push({ role: "user", content: userMessage });
 
   try {
@@ -32,4 +32,4 @@ async function tanyaBob(history, userMessage) {
   }
 }
 
-export default tanyaBob;
+export default performActionTanyaBob;

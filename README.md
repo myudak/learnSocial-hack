@@ -3,6 +3,7 @@
 # Auto LearnSocial
 
 ![alt text](./assets/image.png)
+![](./assets//video_preview.gif)
 <video controls src="./assets/video_preview.mp4" title="Title"></video>
 
 ⭐ Star us on GitHub — it motivates us a lot!
@@ -49,6 +50,8 @@ tambah file .env di root folder
 dengan username dan password learnsocial
 
 contoh
+
+![alt text](./assets/image-9.png)
 
 ```
 USERUNDIP="username"

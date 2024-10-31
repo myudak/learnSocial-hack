@@ -3,6 +3,8 @@
 # Auto LearnSocial
 
 ![alt text](./assets/image.png)
+![asd](./assets/video_preview.mp4)
+
 <video controls src="./assets/video_preview.mp4" title="Title"></video>
 
 ⭐ Star us on GitHub — it motivates us a lot!

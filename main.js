@@ -60,7 +60,7 @@ async function listenForInput(page, browser) {
       "7 : Soal Fill the gap (Choose the words that cannot fill the gaps)",
       "8 : Soal dua part kanan kiri",
       "bob : bob robot undip",
-      "a : All Auto Answer in one unit",
+      "a : All Auto Answer in one unit ⚠️ Beta",
       "r : Reset All answer in one unit",
       "c / q / close : Exit X",
       "h / hide / show : Hide / Show this display helper",
@@ -123,26 +123,6 @@ async function listenForInput(page, browser) {
   await tungguClick(page, "#loginButton");
 
   await tungguClick(page, "#courses");
-  await tungguClick(
-    page,
-    "body > div.rootPanelStyle > div.screenTableStyle > div.menuTdScreenStyle > div > div > div.mainMenuStyle > div > table > tbody:nth-child(2) > tr:nth-child(19) > td > div.productsMenuItemStyle.clickableItem"
-  ); //   CFR A1
-  await tungguClick(
-    page,
-    "#\\31 441721608317aUUxsyylPRfnxxT9 > table > tr > td.screenTableTitleCell"
-  ); //   PENCET UNITS
-  await tungguClick(
-    page,
-    "#\\31 441721608362Vbm7UFsCE0fH10e3 > table > tr > td.screenTableTitleCell"
-  ); // UNIT 1
-  await tungguClick(
-    page,
-    "#\\31 4417216083939GwkiGwtlgandjfO > table > tr > td.screenTableTitleCell"
-  ); // EXRCISE
-  await tungguClick(
-    page,
-    "#\\31 441721608404Qrd5akaHZcJwkZw8 > table > tr > td.screenTableTitleCell"
-  ); // 3.1
 
   console.log(chalk.blue(asciiArt));
   console.log(chalk.red("created by : myudak || https://github.com/myudak"));
